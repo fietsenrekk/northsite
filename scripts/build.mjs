@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 
 const BASE = process.env.NS_BASE || 'https://fietsenrekk.github.io/northsite/';
 const BOOK = 'https://calendly.com/charlesmuwangam/intro-call';
-const BOOK_EMBED = BOOK + '?hide_gdpr_banner=1&amp;background_color=F4F3EF&amp;text_color=0C1033&amp;primary_color=1E35F0';
+const BOOK_EMBED = BOOK + '?hide_gdpr_banner=1&amp;hide_event_type_details=1&amp;hide_landing_page_details=1&amp;background_color=F4F3EF&amp;text_color=0C1033&amp;primary_color=1E35F0';
 
 const data = JSON.parse(fs.readFileSync('src/data/projects.json', 'utf8'));
 const logo = fs.readFileSync('assets/img/logo.svg', 'utf8').trim();

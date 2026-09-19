@@ -109,6 +109,7 @@ a{color:inherit}
 
 /* ---------- hero ---------- */
 .hero{padding-block:clamp(44px,10vh,120px) clamp(48px,8vh,96px)}
+@media (max-width:640px){.hero{padding-bottom:12px}}
 .hero h1{
   font-weight:700;font-size:var(--fs-display);line-height:.9;
   letter-spacing:-.045em;margin:0;max-width:15ch;text-wrap:balance;

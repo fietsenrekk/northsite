@@ -70,10 +70,10 @@ Every number the page prints about itself, and where it comes from.
 
 | Claim | Measured | Tool |
 |---|---|---|
-| Lighthouse mobile performance | 100 | `lighthouse --form-factor=mobile` |
+| Lighthouse mobile performance | 98 live (100 on localhost) | `lighthouse --form-factor=mobile` against the live URL |
 | Lighthouse accessibility / best practices / SEO | 100 / 100 / 100 | same run |
-| First contentful paint | 0.7 s | same run |
-| Largest contentful paint | 1.1 s simulated, 240 ms warm median | Lighthouse, then `npm run vitals` |
+| First contentful paint | 1.1 s live, 0.7 s localhost | same run |
+| Largest contentful paint | 2.0 s live simulated, 1.1 s localhost, 240 ms warm median | Lighthouse, then `npm run vitals` |
 | Cumulative layout shift | 0 | both |
 | axe-core violations | 0 across four states | `npm run a11y` |
 | Scroll frame time, 95th percentile | 12.3 ms against a 16.7 ms budget | `npm run vitals` |

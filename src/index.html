@@ -38,7 +38,7 @@
         <span class="brand__by">by visualsbyfiets</span>
       </span>
     </a>
-    <a class="hdr__to" href="{{BOOK}}" id="hdrBook" target="_blank" rel="noopener noreferrer"><span>Book an intro call</span>{{CURSOR}}</a>
+    <a class="hdr__to" href="{{BOOK}}" id="hdrBook" data-book target="_blank" rel="noopener noreferrer"><span>Book an intro call</span>{{CURSOR}}</a>
   </div>
 </header>
 
@@ -128,8 +128,9 @@
       <div class="get rise">
         <h3>Loaded before the visitor gives up</h3>
         <p>These are static files. Nothing has to wake up and no database gets queried, so there is
-          nothing there to be slow. <b>This page scores 100 for performance on Google's mobile test
-          and paints in 0.7 seconds on a throttled phone.</b> Speed has been a Google ranking
+          nothing there to be slow. <b>This page scores 98 or better for performance on Google's mobile
+          test, measured on the live site, and shows its first words in about a second on a
+          throttled phone.</b> Speed has been a Google ranking
           signal since 2021, and a slow site rarely gets a second chance.</p>
       </div>
 
@@ -165,7 +166,7 @@
       <ul class="ftr__links">
         <li><a href="https://www.instagram.com/northsite.co/" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
         <li><a href="https://www.tiktok.com/@northsite.co" target="_blank" rel="noopener noreferrer me">TikTok</a></li>
-        <li><a href="{{BOOK}}" target="_blank" rel="noopener noreferrer">Book a call</a></li>
+        <li><a href="{{BOOK}}" data-book target="_blank" rel="noopener noreferrer">Book a call</a></li>
       </ul>
       <p class="ftr__fine">northsite is the web build arm of Visuals by Fiets.<br>
         Same person, same shop. Antwerp, Belgium. <span class="num">{{YEAR}}</span></p>
@@ -210,6 +211,7 @@
   </div>
 </section>
 
+<script src="assets/app.js" defer></script>
 <script>
 /* The motion stack is 142 KB of JavaScript. Parsed during load on a throttled
    phone it pushed modelled LCP to 1.8s, so it is fetched after first paint
@@ -217,9 +219,9 @@
    html element keeps its no-js class and the whole page stays readable. */
 (function () {
   var q = ['assets/js/gsap.min.js', 'assets/js/ScrollTrigger.min.js',
-           'assets/js/SplitText.min.js', 'assets/js/lenis.min.js', 'assets/app.js'];
+           'assets/js/SplitText.min.js', 'assets/js/lenis.min.js'];
   function next(i) {
-    if (i >= q.length) return;
+    if (i >= q.length) { if (window.__nsMotion) window.__nsMotion(); return; }
     var s = document.createElement('script');
     s.src = q[i];
     s.onload = function () { next(i + 1); };

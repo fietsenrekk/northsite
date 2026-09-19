@@ -9,7 +9,7 @@
      the motion stack is confirmed present, so a failed or blocked script leaves
      the page fully readable instead of blank. The sheet and the hover cursor
      below do not depend on it. */
-  if (window.gsap && window.ScrollTrigger) root.classList.remove('no-js');
+
 
   /* ---------------------------------------------------------------- sheet */
   var bar = document.getElementById('bookBar');
@@ -78,13 +78,13 @@
 
   /* The header link is a real anchor to the booking page, so it works with no
      JavaScript. With JavaScript it opens the same sheet the bar does. */
-  if (hdrBook) {
-    hdrBook.addEventListener('click', function (e) {
+  document.querySelectorAll('[data-book]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
       e.preventDefault();
       openSheet();
     });
-  }
+  });
 
   document.addEventListener('keydown', function (e) {
     if (!sheet.classList.contains('is-open')) return;
@@ -124,7 +124,12 @@
   }
 
   /* ------------------------------------------------------------ motion */
-  if (!window.gsap || !window.ScrollTrigger) return;
+  /* app.js loads straight away so the booking bar works from first paint. The
+     142 KB motion stack arrives later, and calls __nsMotion when it is ready. */
+  function initMotion() {
+  if (!window.gsap || !window.ScrollTrigger || initMotion.done) return;
+  initMotion.done = true;
+  root.classList.remove('no-js');
 
   gsap.registerPlugin(ScrollTrigger);
   if (window.SplitText) gsap.registerPlugin(SplitText);
@@ -244,9 +249,12 @@
   ScrollTrigger.addEventListener('refreshInit', function () {
     document.querySelectorAll('.rise,.settle img').forEach(function (el) { el.style.willChange = 'transform,opacity'; });
   });
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      document.querySelectorAll('.rise,.settle img').forEach(function (el) { el.style.willChange = ''; });
-    }, 2600);
-  });
+  /* initMotion now runs after the load event has already fired, so a load
+     listener here would never run and will-change would never be released. */
+  setTimeout(function () {
+    document.querySelectorAll('.rise,.settle img').forEach(function (el) { el.style.willChange = ''; });
+  }, 2600);
+  }
+  window.__nsMotion = initMotion;
+  initMotion();
 })();
