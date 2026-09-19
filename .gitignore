@@ -1,0 +1,7 @@
+node_modules/
+dist/
+docs/qa/
+docs/lh-*.json
+docs/proof/
+assets/shots/*.png
+.DS_Store

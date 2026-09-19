@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>northsite, by visuals by fiets</title>
+<meta name="description" content="Web development from Antwerp. {{COUNT_WORD}} sites live right now, built to be found by search engines and AI assistants, to load in under a second, and to take the booking without a phone call.">
+<link rel="canonical" href="{{BASE}}">
+<meta name="theme-color" content="#0C1033">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="northsite, by visuals by fiets">
+<meta property="og:description" content="{{COUNT_WORD}} sites live right now. Every card opens the real thing, not a case study.">
+<meta property="og:url" content="{{BASE}}">
+<meta property="og:image" content="{{BASE}}assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/Switzer-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body>
+<a class="skip" href="#shelf">Skip to the shelf</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
+
+<header class="hdr">
+  <div class="wrap hdr__row">
+    <a class="brand" href="#top">
+      {{MARK}}
+      <span class="brand__names">
+        <span class="brand__n">northsite</span>
+        <span class="brand__by">by visualsbyfiets</span>
+      </span>
+    </a>
+    <a class="hdr__to" href="{{BOOK}}" id="hdrBook" target="_blank" rel="noopener noreferrer"><span>Book an intro call</span>{{CURSOR}}</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <h1>Everything here is <em>live</em>.</h1>
+    <div class="hero__grid">
+      <div>
+        <p class="hero__lead">No case studies. No mockups. No screenshots of work that never shipped.
+          Every card below opens the real site in a new tab, and <b>the build fails if one of those
+          links stops answering</b>.</p>
+      </div>
+      <div class="tick">
+        <dl>
+          <div><dt>In stock</dt><dd class="num">{{COUNT}}</dd></div>
+          <div><dt>Broken links</dt><dd class="num is-zero">0</dd></div>
+          <div><dt>Last checked</dt><dd class="num">{{CHECKED}}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="shelf" aria-labelledby="shelf-h">
+    <div class="sec__head">
+      <div class="sec__top">{{DOTS}}<p class="kicker">The shelf</p>{{N1}}</div>
+      <h2 id="shelf-h">{{COUNT_WORD}} sites, all of them answering right now.</h2>
+      <p class="kicker">Clinics, restaurants, a bakery, salons, a perfume house and a record.
+        Each card opens the real deployment, not a picture of one.</p>
+    </div>
+    <ul class="shelf">
+{{SHELF}}
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="featured" aria-labelledby="feat-h">
+    <div class="sec__head">
+      <div class="sec__top">{{DOTS}}<p class="kicker">The long version</p>{{N2}}</div>
+      <h2 id="feat-h">{{FEAT_NAME}}</h2>
+      <p class="kicker">{{FEAT_LINE}}</p>
+    </div>
+    <div class="feat__grid">
+      <div class="feat__pin">
+        <figure class="feat__shot settle rise">
+          <div class="card__bar">{{DOTS}}<span class="card__idx num">{{FEAT_HOST}}</span></div>
+          <img src="assets/shots/{{FEAT_ID}}.webp" width="{{FEAT_W}}" height="{{FEAT_H}}"
+               alt="The {{FEAT_NAME}} site, as it looks right now." loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div>
+        <ol class="feat__steps">
+{{FEAT_STEPS}}
+        </ol>
+        <p class="feat__cta rise">
+          <a class="open" href="{{FEAT_URL}}" target="_blank" rel="noopener noreferrer">Open {{FEAT_NAME}}{{CURSOR}}<span class="vh">, opens in a new tab</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="gets" aria-labelledby="gets-h" data-rise-group>
+    <div class="sec__head">
+      <div class="sec__top">{{DOTS}}<p class="kicker">What it does for you</p>{{N3}}</div>
+      <h2 id="gets-h">A site is not a design. It is how you get found and how you get booked.</h2>
+      <p class="kicker">Six things every build on this shelf does, and what each one is worth to the
+        business paying for it.</p>
+    </div>
+    <div class="gets">
+
+      <div class="get rise">
+        <h3>Found when someone asks an AI, not only when they search</h3>
+        <p>People increasingly ask an assistant instead of typing into a search box, and an assistant
+          can only repeat what it can read. Every clinic, restaurant and shop here publishes its
+          hours, address, treatments and prices as machine-readable data: <b>Dentist, MedicalClinic,
+          Restaurant, Bakery, Menu, OpeningHoursSpecification</b>. That is the difference between
+          being quoted correctly and being left out of the answer.</p>
+      </div>
+
+      <div class="get rise">
+        <h3>Ranked for what people type, not for what you call it</h3>
+        <p>One page per treatment, per dish, per service, each with its own title, description and
+          entry in the sitemap. <b>Elite Clinics runs nineteen Dutch routes with a full English
+          mirror, LACLINIC has sixty-five pages, and Kaiso gives each of 149 dishes its own.</b>
+          A one-page site competes for exactly one phrase.</p>
+      </div>
+
+      <div class="get rise">
+        <h3>Loaded before the visitor gives up</h3>
+        <p>These are static files. Nothing has to wake up and no database gets queried, so there is
+          nothing there to be slow. <b>This page scores 100 for performance on Google's mobile test
+          and paints in 0.7 seconds on a throttled phone.</b> Speed has been a Google ranking
+          signal since 2021, and a slow site rarely gets a second chance.</p>
+      </div>
+
+      <div class="get rise">
+        <h3>Dutch and English, done properly</h3>
+        <p>Not a translation widget bolted on afterwards. Two real versions out of one build, each
+          with its own URLs and <b>hreflang pointing at the other, plus x-default</b>, so an Antwerp
+          local is served Dutch and a visitor is served English. Six of the sites here ship both.</p>
+      </div>
+
+      <div class="get rise">
+        <h3>Usable by everyone, which is the same work as SEO</h3>
+        <p>Real contrast, a focus ring you can see, operable end to end from a keyboard, every image
+          described. <b>This page has zero axe-core violations and scores 100 on accessibility.</b>
+          A screen reader and a search crawler read a page the same way, so the work pays twice.</p>
+      </div>
+
+      <div class="get rise">
+        <h3>Booking where the visitor already is</h3>
+        <p>Nobody should have to telephone during opening hours to give you money. <b>Tandis keeps
+          the Doctena account it already had, Labi pulls live hours from Setmore, Elite hands off to
+          Clinicminds, and UCHI has a four-step flow built into the site itself.</b> The booking
+          happens on the page they are already reading.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__row">
+      <ul class="ftr__links">
+        <li><a href="https://www.instagram.com/northsite.co/" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@northsite.co" target="_blank" rel="noopener noreferrer me">TikTok</a></li>
+        <li><a href="{{BOOK}}" target="_blank" rel="noopener noreferrer">Book a call</a></li>
+      </ul>
+      <p class="ftr__fine">northsite is the web build arm of Visuals by Fiets.<br>
+        Same person, same shop. Antwerp, Belgium. <span class="num">{{YEAR}}</span></p>
+    </div>
+  </div>
+</footer>
+
+<div class="ghost" id="ghost" aria-hidden="true">{{CURSOR}}<span>Open the real site</span></div>
+<div class="sheet__scrim" id="scrim"></div>
+
+<button class="bar" id="bookBar" type="button" aria-expanded="false" aria-controls="sheet">
+  <span class="bar__l">
+    <span class="bar__dot" aria-hidden="true"></span>
+    <span class="bar__t">Book an intro call</span>
+  </span>
+  <span class="bar__r">
+    <span class="bar__next num">20 min, on Google Meet</span>
+    <svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M2.5 7.5L6 4l3.5 3.5"/></svg>
+  </span>
+</button>
+
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-h" aria-hidden="true">
+  <div class="sheet__head">
+    <div class="sheet__top">
+      {{DOTS}}
+      <button class="sheet__x" id="sheetClose" type="button" aria-label="Close the booking panel">
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M1.5 1.5l11 11M12.5 1.5l-11 11"/></svg>
+      </button>
+    </div>
+    <h2 id="sheet-h">Twenty minutes, on Google Meet</h2>
+    <p>Tell me what you are building. I will tell you what it takes and what it costs.
+      If it is not a fit, I will say so on the call.</p>
+  </div>
+  <div class="sheet__body" id="frameHost" data-src="{{BOOK_EMBED}}">
+    <div class="sheet__fallback">
+      <p style="margin:0;max-width:44ch">The booking panel opens on Calendly. It picks up your own
+        timezone automatically.</p>
+      <a href="{{BOOK}}" target="_blank" rel="noopener noreferrer">Pick a time{{CURSOR}}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* The motion stack is 142 KB of JavaScript. Parsed during load on a throttled
+   phone it pushed modelled LCP to 1.8s, so it is fetched after first paint
+   instead. Nothing above the fold depends on it, and if it never arrives the
+   html element keeps its no-js class and the whole page stays readable. */
+(function () {
+  var q = ['assets/js/gsap.min.js', 'assets/js/ScrollTrigger.min.js',
+           'assets/js/SplitText.min.js', 'assets/js/lenis.min.js', 'assets/app.js'];
+  function next(i) {
+    if (i >= q.length) return;
+    var s = document.createElement('script');
+    s.src = q[i];
+    s.onload = function () { next(i + 1); };
+    document.head.appendChild(s);
+  }
+  function go() { ('requestIdleCallback' in window)
+    ? requestIdleCallback(function () { next(0); }, { timeout: 900 })
+    : setTimeout(function () { next(0); }, 120); }
+  if (document.readyState === 'complete') go();
+  else addEventListener('load', go, { once: true });
+})();
+</script>
+</body>
+</html>

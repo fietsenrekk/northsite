@@ -1,0 +1,33 @@
+{
+  "name": "northsite",
+  "version": "1.0.0",
+  "description": "northsite, by visuals by fiets. A shelf of sites that are live right now.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "shoot": "node scripts/shoot.mjs",
+    "build": "node scripts/build.mjs",
+    "cards": "node scripts/cards.mjs",
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "a11y": "node scripts/a11y.mjs",
+    "pin": "node scripts/pin.mjs",
+    "qa": "node scripts/qa.mjs",
+    "vitals": "node scripts/vitals.mjs",
+    "contrast": "node scripts/contrast.mjs",
+    "verify": "node scripts/check.mjs && node scripts/a11y.mjs && node scripts/pin.mjs && node scripts/qa.mjs",
+    "proof": "node scripts/proof.mjs",
+    "deploy": "node scripts/build.mjs && bash scripts/deploy.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "axe-core": "^4.13.0",
+    "lighthouse": "^12.8.2",
+    "puppeteer-core": "^23.11.1"
+  },
+  "private": true
+}

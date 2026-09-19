@@ -1,0 +1,333 @@
+/* northsite, by visuals by fiets.
+   Palette sampled from the logo artwork: navy #0C1033, blue #1E35F0.
+   The logo is a browser window holding two chevrons and a cursor. All three
+   parts are reused as devices: the dots mark sections, the chevrons bracket
+   numbers, the cursor is every "open this" affordance on the page. */
+
+@font-face{font-family:Switzer;src:url(fonts/Switzer-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Switzer;src:url(fonts/Switzer-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --ink:#0C1033;
+  --paper:#F4F3EF;
+  --line:#D6D4CB;
+  --signal:#1E35F0;
+
+  /* Secondary text is a solid colour, never ink at reduced opacity. Ink at .45
+     to .55 over paper measures 2.96 to 4.03 against a 4.50 floor. These are
+     10.10 and 5.08. scripts/contrast.mjs prints the numbers. */
+  --ink-2:#363955;
+  --ink-3:#64667A;
+
+  --wash:#EDECF7;      /* signal at ~8% over paper, for quiet blue fields */
+  --media:#E9E7E1;
+
+  --logo-ink:var(--ink);
+  --logo-blue:var(--signal);
+  --logo-paper:var(--paper);
+
+  --ease:cubic-bezier(.32,.72,0,1);
+  --dur:280ms;
+
+  --gut:clamp(20px,5vw,72px);
+  --bar-h:72px;
+
+  --fs-display:clamp(2.75rem,8.6vw,8.25rem);
+  --fs-h2:clamp(1.75rem,4vw,3.125rem);
+  --fs-lead:clamp(1.0625rem,1.5vw,1.375rem);
+  --fs-body:clamp(1rem,1.1vw,1.0625rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Switzer,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:var(--fs-body);line-height:1.6;
+  font-synthesis-weight:none;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:var(--bar-h);
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--signal);color:#fff}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1400px;margin-inline:auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:400}
+.skip:focus{left:0}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* Quiet secondary text. Sentence case, regular weight, no tracking: the
+   wide-tracked uppercase micro-label is the single most recognisable tell of a
+   templated page, so it appears nowhere on this site. */
+.kicker{font-size:.8125rem;line-height:1.4;color:var(--ink-3);margin:0}
+
+/* ---------- scroll progress ---------- */
+.prog{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:300;
+  background:var(--signal);transform:scaleX(0);transform-origin:0 50%;
+  will-change:transform;pointer-events:none;
+}
+
+/* ---------- the three dots, lifted off the logo title bar ---------- */
+.dots{display:flex;gap:5px;align-items:center;flex:none}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--ink);display:block}
+.dots i:last-child{background:var(--signal)}
+
+/* ---------- the chevrons, lifted off the logo body ---------- */
+.chev{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8125rem;font-weight:700;color:var(--signal);
+}
+.chev svg{width:7px;height:11px;flex:none}
+.chev b{font-weight:700;letter-spacing:.02em}
+
+/* ---------- header ---------- */
+.hdr{padding-block:clamp(18px,2.6vw,30px);position:relative;z-index:20}
+.hdr__row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+.brand__mark{width:36px;height:36px;flex:none}
+/* the cursor inside the mark presses once, the way a real click looks */
+.brand:hover .brand__mark .cur{transform:translate(-2px,-2px)}
+.brand__mark .cur{transition:transform 260ms var(--ease)}
+.brand__names{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.brand__n{font-weight:700;font-size:1.3125rem;letter-spacing:-.035em;line-height:1}
+/* Same ink as the wordmark, at full strength. Size carries the hierarchy, the
+   way a parent-company lockup does. */
+.brand__by{font-weight:400;font-size:.75rem;line-height:1}
+.hdr__to{display:none}
+@media (min-width:640px){
+  .hdr__to{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:.875rem}
+  .hdr__to span{border-bottom:1px solid var(--line);padding-bottom:2px;white-space:nowrap;transition:border-color 200ms var(--ease),color 200ms var(--ease)}
+  .hdr__to svg{width:11px;height:14px;flex:none;transition:transform 260ms var(--ease)}
+  .hdr__to:hover svg{transform:translate(2px,2px)}
+  .hdr__to:hover span{color:var(--signal);border-color:var(--signal)}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(44px,10vh,120px) clamp(48px,8vh,96px)}
+.hero h1{
+  font-weight:700;font-size:var(--fs-display);line-height:.9;
+  letter-spacing:-.045em;margin:0;max-width:15ch;text-wrap:balance;
+}
+/* the one word that carries the whole claim */
+.hero h1 em{font-style:normal;color:var(--signal)}
+.hero__lead{font-size:var(--fs-lead);line-height:1.5;max-width:54ch;margin:0;color:var(--ink-2)}
+.hero__lead b{font-weight:700;color:var(--ink)}
+
+.hero__grid{display:grid;gap:clamp(34px,5vw,60px);margin-top:clamp(30px,4vw,52px)}
+@media (min-width:1024px){
+  .hero__grid{grid-template-columns:minmax(0,1fr) minmax(250px,320px);align-items:end}
+}
+/* the stock readout. A shop counts its stock where a portfolio writes a tagline. */
+.tick{border-top:2px solid var(--ink)}
+.tick dl{margin:0;display:grid}
+.tick div{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--line);
+}
+.tick dt{color:var(--ink-3);font-size:.8125rem}
+.tick dd{margin:0;font-weight:700;font-size:1.0625rem;letter-spacing:-.02em}
+.tick dd.is-zero{color:var(--signal)}
+
+/* ---------- section chrome ---------- */
+.sec{padding-block:clamp(52px,8vh,104px)}
+.sec__head{margin-bottom:clamp(28px,4vw,48px)}
+.sec__top{
+  display:flex;align-items:center;gap:14px;
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:22px;
+}
+.sec__top .dots{margin-right:2px}
+.sec__top .chev{margin-left:auto}
+.sec__head h2{font-size:var(--fs-h2);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin:0;max-width:22ch}
+.sec__head .kicker{margin-top:12px;max-width:56ch;font-size:.9375rem;color:var(--ink-2)}
+
+/* ---------- the shelf ---------- */
+.shelf{list-style:none;margin:0;padding:0;display:grid;gap:clamp(26px,2.6vw,40px);grid-template-columns:1fr}
+@media (min-width:640px){.shelf{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1140px){.shelf{grid-template-columns:repeat(3,1fr)}}
+
+.card{position:relative;display:flex;flex-direction:column}
+/* every card is a window, because the logo is a window */
+.card__win{border:1px solid var(--line);background:var(--paper);transition:border-color 260ms var(--ease)}
+.card__bar{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 11px;border-bottom:1px solid var(--line);
+}
+.card__bar .dots i{width:5px;height:5px}
+.card__idx{margin-left:auto;font-size:.6875rem;font-weight:700;color:var(--signal)}
+.card__media{position:relative;overflow:hidden;background:var(--media);aspect-ratio:16/10}
+.card__media img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  transform:scale(1.001);transition:transform 640ms var(--ease);
+}
+.card:hover .card__win,.card:focus-within .card__win{border-color:var(--signal)}
+.card:hover .card__media img,.card:focus-within .card__media img{transform:scale(1.04)}
+
+.card__body{display:flex;flex-direction:column;flex:1;padding-top:16px}
+.card__name{font-size:1.1875rem;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin:0}
+.card__kind{margin:4px 0 0;font-size:.8125rem;color:var(--ink-3)}
+.card__line{margin:11px 0 0;color:var(--ink-2);font-size:.9375rem;line-height:1.55}
+.card__foot{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+  margin-top:auto;padding-top:18px;
+}
+.card__stat{margin:0;line-height:1.2}
+.card__stat b{display:block;font-size:1rem;font-weight:700;letter-spacing:-.015em}
+.card__stat span{color:var(--ink-3);font-size:.78125rem}
+
+/* the cursor from the logo is the open affordance */
+.open{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;flex:none;
+  font-size:.9375rem;font-weight:700;
+  border-bottom:2px solid var(--ink);padding-bottom:3px;
+  transition:color 200ms var(--ease),border-color 200ms var(--ease);
+}
+.open svg{width:13px;height:15px;flex:none;transition:transform 260ms var(--ease)}
+.card .open::after{content:"";position:absolute;inset:0;z-index:3}
+.card:hover .open,.card:focus-within .open{color:var(--signal);border-color:var(--signal)}
+.card:hover .open svg,.card:focus-within .open svg{transform:translate(2px,2px)}
+.open:hover{color:var(--signal);border-color:var(--signal)}
+.open:hover svg{transform:translate(2px,2px)}
+.card:focus-within{outline:3px solid var(--signal);outline-offset:7px;border-radius:2px}
+.card .open:focus-visible{outline:none}
+
+/* ---------- the hover cursor, desktop pointers only ---------- */
+.ghost{
+  position:fixed;top:0;left:0;z-index:250;pointer-events:none;
+  display:flex;align-items:center;gap:7px;
+  padding:7px 11px 7px 8px;background:var(--signal);color:#fff;
+  font-size:.75rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;
+  opacity:0;transform:translate3d(-100px,-100px,0) scale(.86);
+  transition:opacity 180ms var(--ease),scale 220ms var(--ease);
+}
+.ghost svg{width:12px;height:14px;flex:none}
+.ghost.is-on{opacity:1;scale:1}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.ghost{display:none}}
+
+/* ---------- featured ---------- */
+.feat__grid{display:grid;gap:clamp(26px,4vw,60px)}
+.feat__shot{border:1px solid var(--line);background:var(--media);overflow:hidden;margin:0}
+.feat__shot .card__bar{border-bottom:1px solid var(--line)}
+.feat__shot img{width:100%;height:auto}
+.feat__steps{list-style:none;margin:0;padding:0;display:grid;gap:24px}
+.feat__step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;max-width:52ch}
+.feat__step p{margin:0;font-size:1.0625rem;line-height:1.6}
+.feat__n{
+  font-size:.8125rem;font-weight:700;color:var(--ink-3);padding-top:6px;min-width:20px;
+  transition:color 300ms var(--ease);
+}
+.feat__step.is-on .feat__n{color:var(--signal)}
+.feat__cta{margin-top:32px}
+
+@media (min-width:1024px){
+  .feat__grid{grid-template-columns:1.1fr .9fr;align-items:start}
+  .feat__pin{position:sticky;top:clamp(24px,26vh,280px)}
+  /* The steps column has to be several viewports tall or the image releases
+     before the last step is read, which is worse than not pinning at all. The
+     leading pad is larger than the sticky offset so the image has already
+     settled before step 01 lights. scripts/pin.mjs proves it. */
+  .feat__steps{gap:clamp(180px,42vh,400px);padding-block:38vh 26vh}
+}
+/* The dimming belongs to the pinned reveal, so it is gated on motion as well
+   as width: `.is-on` is only ever set by the motion branch, and without this
+   a reduced-motion visitor would read three of four steps at 28% opacity. */
+@media (min-width:1024px) and (prefers-reduced-motion:no-preference){
+  .feat__step{opacity:.3;transition:opacity 420ms var(--ease)}
+  .feat__step.is-on{opacity:1}
+}
+
+/* ---------- what you get ---------- */
+.gets{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);counter-reset:get}
+@media (min-width:760px){.gets{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1200px){.gets{grid-template-columns:repeat(3,1fr)}}
+.get{background:var(--paper);padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:12px;
+  transition:background 260ms var(--ease)}
+.get:hover{background:var(--wash)}
+.get{counter-increment:get}
+.get h3{margin:0;font-size:1.0625rem;font-weight:700;letter-spacing:-.02em;line-height:1.3;max-width:26ch}
+.get h3::before{
+  content:counter(get,decimal-leading-zero);display:block;margin-bottom:10px;
+  color:var(--signal);font-size:.75rem;font-variant-numeric:tabular-nums;letter-spacing:0;
+}
+.get p{margin:0;color:var(--ink-2);font-size:.9375rem;line-height:1.6}
+.get p b{font-weight:700;color:var(--ink)}
+
+/* ---------- footer ---------- */
+.ftr{border-top:1px solid var(--line);padding-block:clamp(32px,4.4vw,52px) clamp(26px,3.4vw,40px)}
+.ftr__row{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-end}
+.ftr__links{display:flex;gap:22px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.ftr__links a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;
+  transition:border-color 200ms var(--ease),color 200ms var(--ease)}
+.ftr__links a:hover{color:var(--signal);border-color:var(--signal)}
+.ftr__fine{color:var(--ink-3);font-size:.8125rem;margin:0;line-height:1.6}
+
+/* ---------- the bar and the sheet, echoing the noorperfumes-shop cart ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;height:var(--bar-h);
+  background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-inline:clamp(16px,4vw,28px);
+  border:0;width:100%;font:inherit;text-align:left;cursor:pointer;
+  transition:background 220ms var(--ease);
+}
+.bar:hover,.bar:focus-visible{background:var(--signal)}
+.bar:focus-visible{outline:3px solid var(--signal);outline-offset:-6px}
+.bar__l{display:flex;align-items:center;gap:13px;min-width:0}
+.bar__dot{width:8px;height:8px;border-radius:50%;background:#49E27F;flex:none}
+.bar__t{font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar__r{display:flex;align-items:center;gap:11px;flex:none}
+.bar__next{opacity:.85;font-size:.8125rem;white-space:nowrap}
+@media (max-width:560px){.bar__next{display:none}}
+
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;top:clamp(48px,9vh,96px);z-index:80;
+  background:var(--paper);color:var(--ink);
+  border-top:3px solid var(--ink);
+  max-width:900px;margin-inline:auto;
+  display:flex;flex-direction:column;
+  transform:translateY(100%);visibility:hidden;
+  transition:transform var(--dur) var(--ease),visibility 0s linear var(--dur);
+}
+.sheet.is-open{transform:translateY(0);visibility:visible;transition-delay:0s}
+.sheet__scrim{
+  position:fixed;inset:0;z-index:79;background:rgba(12,16,51,.42);
+  opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease);
+}
+.sheet__scrim.is-open{opacity:1;pointer-events:auto}
+.sheet__head{padding:18px clamp(18px,4vw,30px) 16px;border-bottom:1px solid var(--line);flex:none}
+.sheet__top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.sheet__head h2{font-size:1.375rem;font-weight:700;letter-spacing:-.03em;margin:10px 0 0}
+.sheet__head p{margin:8px 0 0;color:var(--ink-2);font-size:.9375rem;max-width:52ch;line-height:1.55}
+.sheet__x{
+  background:none;border:1px solid var(--line);color:inherit;font:inherit;cursor:pointer;
+  width:38px;height:38px;display:grid;place-items:center;flex:none;
+  transition:background 180ms var(--ease),border-color 180ms var(--ease),color 180ms var(--ease)}
+.sheet__x:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.sheet__body{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}
+.sheet__frame{width:100%;height:100%;min-height:620px;border:0;display:block}
+.sheet__fallback{padding:clamp(22px,5vw,38px);display:grid;gap:16px;justify-items:start}
+.sheet__fallback a{
+  display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);
+  text-decoration:none;padding:14px 20px;font-weight:700}
+.sheet__fallback a:hover{background:var(--signal)}
+.sheet__fallback a svg{width:11px;height:14px;flex:none}
+
+/* ---------- motion primitives: rise for content, settle for media ---------- */
+.rise{opacity:0;transform:translateY(20px)}
+.settle img{transform:scale(1.04)}  /* featured figure only */
+.no-js .rise{opacity:1;transform:none}
+.no-js .settle img{transform:none}
+.no-js .prog{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .rise{opacity:1;transform:none}
+  .settle img{transform:none}
+  .sheet{transition:none}
+  .prog{display:none}
+}

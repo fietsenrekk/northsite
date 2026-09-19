@@ -1,0 +1,221 @@
+{
+  "cleared": [
+    {
+      "id": "pas-facile",
+      "name": "PAS FACILE",
+      "kind": "Fashion brand",
+      "url": "https://fietsenrekk.github.io/pas-facile/",
+      "line": "A Paris magazine and lifestyle label. The shop, the lookbook and a playable game all live on one page, so nobody has to navigate to be sold to.",
+      "stat": "9 looks",
+      "statLabel": "one pinned lookbook",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 6500
+      },
+      "featured": true,
+      "detail": [
+        "The hero is a live Three.js shader. Mouse speed drives a ripple through the image, and it degrades to a plain photograph when a device cannot run WebGL, so nobody gets a blank screen.",
+        "The lookbook pins and scrolls sideways under one trigger. Nine looks in the space a normal page gives three, which is how a small catalogue reads as a full collection.",
+        "Drop 001 takes real orders. Hover swaps the product image, quick add works from the grid, and the cart survives a reload so a half-finished basket is still there tomorrow.",
+        "PAS FACILE RUN is a canvas game inside the page, with a monthly leaderboard and a real prize. It exists because a reason to come back beats a reason to visit once."
+      ]
+    },
+    {
+      "id": "noorperfumes",
+      "name": "NOOR PERFUMES",
+      "kind": "Perfume house",
+      "url": "https://noorperfumes.be/",
+      "line": "An Antwerp maison for rare Arabian extraits. The flacon in the hero is real 3D in the browser, not a photograph, so it turns as the visitor moves.",
+      "stat": "3D flacon",
+      "statLabel": "rendered live, not filmed",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 6000
+      }
+    },
+    {
+      "id": "isu-style-preview",
+      "name": "UCHI",
+      "kind": "Hair salon",
+      "url": "https://fietsenrekk.github.io/isu-style-preview/",
+      "line": "Booking built into the site instead of handed to a widget. It knows a cut plus a colour plus a wash is one visit, and that two colour processes are not.",
+      "stat": "4 steps",
+      "statLabel": "from landing to booked",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 5000
+      }
+    },
+    {
+      "id": "tandis",
+      "name": "Tandis",
+      "kind": "Dental practice",
+      "url": "https://fietsenrekk.github.io/tandis/",
+      "line": "A practice on the Lange Gasthuisstraat that explains the treatment before it quotes it. Appointments hand off to the Doctena account they already run.",
+      "stat": "Doctena",
+      "statLabel": "their own scheduler, kept",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    },
+    {
+      "id": "la-framboise",
+      "name": "La Framboise",
+      "kind": "Bakery",
+      "url": "https://fietsenrekk.github.io/la-framboise/",
+      "line": "Every item on the menu is marked up with its own price and section, so search engines can answer what a loaf costs without anyone opening the site.",
+      "stat": "Menu schema",
+      "statLabel": "every dish, priced",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4500
+      }
+    },
+    {
+      "id": "dermadok",
+      "name": "Dermadok",
+      "kind": "Dermatology clinic",
+      "url": "https://fietsenrekk.github.io/dermadok/",
+      "line": "Seven doctors, one clinic on Het Eilandje, and a visitor who needs to find the right one fast. Dutch and English from a single build.",
+      "stat": "7 doctors",
+      "statLabel": "one clinic, two languages",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    },
+    {
+      "id": "josh-stefs",
+      "name": "Josh Stefs",
+      "kind": "Recording artist",
+      "url": "https://fietsenrekk.github.io/josh-stefs/",
+      "line": "Three singles, one a year. The lit window in the record sleeve is the play button, and pressing it runs the page backwards through his three years.",
+      "stat": "3 singles",
+      "statLabel": "three years, one page",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4500
+      }
+    },
+    {
+      "id": "laclinic-dental",
+      "name": "LACLINIC DENTAL",
+      "kind": "Dental practice",
+      "url": "https://fietsenrekk.github.io/laclinic-dental/",
+      "line": "No patient stop and no waiting list, said plainly on the page, because that is the one thing a person in pain is searching for.",
+      "stat": "65 pages",
+      "statLabel": "Dutch and English",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000,
+        "scroll": 1958
+      }
+    },
+    {
+      "id": "kaiso-sushi",
+      "name": "Kaiso Sushi",
+      "kind": "Restaurant",
+      "url": "https://fietsenrekk.github.io/kaiso-sushi/",
+      "line": "A full sushi menu on Klapdorp, every dish its own page in both languages, filterable before anyone picks up the phone to ask what is in it.",
+      "stat": "149 dishes",
+      "statLabel": "each one structured",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4500
+      }
+    },
+    {
+      "id": "bravo-dent",
+      "name": "Bravo Dent",
+      "kind": "Dental practice",
+      "url": "https://fietsenrekk.github.io/bravo-dent/",
+      "line": "A practice on the Turnhoutsebaan. Opening hours, address and ratings are marked up as data, so Google prints them straight into the result.",
+      "stat": "Dentist schema",
+      "statLabel": "hours, address, ratings",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    },
+    {
+      "id": "elite-clinics",
+      "name": "Elite Clinics",
+      "kind": "Aesthetic medicine",
+      "url": "https://fietsenrekk.github.io/elite-clinics/",
+      "line": "Nineteen Dutch routes with a full English mirror, one treatment per page, so each procedure can rank for the thing people actually type.",
+      "stat": "19 routes",
+      "statLabel": "mirrored in English",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    },
+    {
+      "id": "labi",
+      "name": "Labi",
+      "kind": "Barbershop",
+      "url": "https://fietsenrekk.github.io/labi/",
+      "line": "Open until 22:00, which is the whole pitch, so it leads. Hours and prices come from the booking system the shop already uses.",
+      "stat": "Open to 22:00",
+      "statLabel": "the reason people come",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    },
+    {
+      "id": "visualsbyfiets",
+      "name": "Visuals by Fiets",
+      "kind": "Motion studio",
+      "url": "https://fietsenrekk.github.io/visualsbyfiets/",
+      "line": "The motion and VFX arm of the same shop. Every price is on the page, because a rate card answers the first question a client has.",
+      "stat": "10M+",
+      "statLabel": "combined views",
+      "shot": {
+        "vw": 1440,
+        "vh": 900,
+        "wait": 4000
+      }
+    }
+  ],
+  "held": [
+    {
+      "name": "Daily Bingsu",
+      "url": "https://fietsenrekk.github.io/dailybingsu/",
+      "why": "Built, 192 pages, but GitHub Pages is not switched on for the repo. Returns 404."
+    },
+    {
+      "name": "El Gato Gordo",
+      "url": "https://fietsenrekk.github.io/el-gato-gordo/",
+      "why": "Built but never deployed. Returns 404."
+    },
+    {
+      "name": "VOLTA",
+      "url": "https://fietsenrekk.github.io/volta/",
+      "why": "Built but never deployed. Returns 404."
+    },
+    {
+      "name": "Pain Shop",
+      "url": "https://fietsenrekk.github.io/painshop/",
+      "why": "Not deployed, and still waiting on the studio's portfolio images."
+    },
+    {
+      "name": "Saintstance",
+      "url": "https://fietsenrekk.github.io/saintstance/",
+      "why": "Deliberately left off. Practice work, not a finished site."
+    }
+  ]
+}
